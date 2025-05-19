@@ -31,6 +31,38 @@ if (isset($_POST['login'])) {
   $stmt->close();
   $conn->close();
 }
+// Registration process
+if (isset($_POST['register'])) {
+  $first_name = trim($_POST['first_name']);
+  $last_name = trim($_POST['last_name']);
+  $email = trim($_POST['email']);
+  $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+  $phone = trim($_POST['phone']);
+
+  // Check if email already exists
+  $stmt = $conn->prepare("SELECT email FROM customer WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $stmt->store_result();
+
+  if ($stmt->num_rows > 0) {
+    echo "<script>alert('🚫This email is already registered. Try logging in./ Please use a different one.');</script>";
+  } else {
+    $stmt->close();
+    // Insert new customer
+    $stmt = $conn->prepare("INSERT INTO customer (first_name, last_name, email, password, phone) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $first_name, $last_name, $email, $password, $phone);
+    if ($stmt->execute()) {
+      echo "<script>alert('Registration successful. You can now log in.');</script>";
+      echo "<script>document.getElementById('container').classList.remove('active');</script>";
+    } else {
+      echo "<script>alert('❌Registration failed. Please try again later.');</script>";
+    }
+  }
+
+  $stmt->close();
+  $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +74,8 @@ if (isset($_POST['login'])) {
     <link rel="icon" href="logo.png" type="image/x-icon"> <!-- small icon shown in browser tabs/bookmarks -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <style>
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+      <style>
       /* Importing Google Fonts: Montserrat for consistent typography */
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
       
@@ -179,22 +210,6 @@ if (isset($_POST['login'])) {
           z-index: 5;
         }
       }
- 
-      /* .social-icons {
-        margin: 20px 0;
-      }
-      .social-icons a {
-        border: 1px solid #ccc;
-        border-radius: 20%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 3px;
-        width: 40px;
-        height: 40px;
-      }  */
-
-
       /* Toggle container for transition effects between forms */
       .toggle-container {
         position: absolute;
@@ -303,66 +318,48 @@ if (isset($_POST['login'])) {
         transform: translateY(-2px);
         box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
       }
- </style>
-  </head>
+      </style>
+    </head>
   
   <body>
     <div class="container" id="container">
       <!-- Registration Form -->
       <div class="form-container sign-up">
-        <form action="register_process.php" method="POST">
+        <form  method="POST">
           <h1>Create Account</h1>
-<!--  
-          <div class="social-icons">
-            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-          </div>
-          <span>or use your email for registration</span>  -->
-
-          <input type="text" name="first_name" id="first_name" placeholder="First Name" required />
-          <input type="text" name="last_name" id="last_name" placeholder="Last Name" required />
+          <input type="text" name="first_name" id="first_name" placeholder="First Name" pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required />
+          <input type="text" name="last_name" id="last_name" placeholder="Last Name" pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required />
           <input type="email" name="email" id="email" placeholder="Email" required />
           <div class="hint">Enter a valid email (e.g., user@example.com)</div>
+          
+          <div class="password-container">
+            <input type="password" name="password" id="password" placeholder="Password" required minlength="6" />
+            <span class="toggle-password" onclick="togglePassword()">Show</span>
+          </div>
 
-        <div class="password-container">
-          <input type="password" name="password" id="password" placeholder="Password" required minlength="6" />
-          <span class="toggle-password" onclick="togglePassword()">Show</span>
-        </div>
-
-        <input type="tel" name="phone" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required />
-          <button type="submit">Sign Up</button>
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter exactly 10 digits"required />
+          <button type="submit" name="register">Sign Up</button>
         </form>
       </div>
 
       <!-- Login Form -->
-<div class="form-container sign-in">
-  <form method="POST">
-    <h1>Sign In</h1>
+  <div class="form-container sign-in">
+    <form method="POST">
+      <h1>Sign In</h1>
+      <!-- Email input field -->
+      <input type="email" name="email" placeholder="Email" required />
 
-    <!-- <div class="social-icons">
-      <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-      <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-      <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-    <span>or use your email password</span> -->
+      <!-- Password input with show/hide toggle -->
+      <div class="password-container">
+        <input type="password" id="admin_pass" name="password" placeholder="Password" required />
+        <span class="toggle-password" onclick="togglePassword()">Show</span>
+      </div>
 
-     <!-- Email input field -->
-    <input type="email" name="email" placeholder="Email" required />
-
-    <!-- Password input with show/hide toggle -->
-    <div class="password-container">
-      <input type="password" id="admin_pass" name="password" placeholder="Password" required />
-      <span class="toggle-password" onclick="togglePassword()">Show</span>
-    </div>
-
-    <!-- Forgot password link (placeholder) -->
-    <a href="#">Forget Your Password?</a>
-    <button type="submit" name="login">Sign In</button>
-  </form>
-</div>
+      <!-- Forgot password link (placeholder) -->
+      <a href="#">Forget Your Password?</a>
+      <button type="submit" name="login">Sign In</button>
+    </form>
+  </div>
       <!-- Toggle Panel -->
       <div class="toggle-container">
         <div class="toggle">

@@ -1,29 +1,23 @@
 <?php
 session_start();
 include "db_connect.php";
-
 if (!isset($_SESSION["customer"])) {
     header("Location: login.php");
     exit();
 }
-
 $customer_email = $_SESSION["customer"];
-
 // Cancel booking handler - delete from DB
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cancel_id"])) {
     $cancel_id = $_POST["cancel_id"];
     $conn->query("DELETE FROM bookings WHERE id = $cancel_id AND customer_email = '$customer_email'");
 }
-
 $query = "SELECT b.*, d.image_path 
           FROM bookings b
           LEFT JOIN decorations d ON b.decoration_id = d.id
           WHERE b.customer_email = '$customer_email'
           ORDER BY b.event_date DESC";
-
 $result = $conn->query($query);
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,7 +101,6 @@ $result = $conn->query($query);
 <body>
     <div class="container">
         <h2>My Bookings</h2>
-
         <?php if ($result->num_rows > 0): ?>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="booking-card">
@@ -116,7 +109,6 @@ $result = $conn->query($query);
                     <p><strong>Decoration:</strong> <img src="<?= $row['image_path'] ?>" width="600"> <br>₹<?= $row['decoration_price'] ?></p>
                     <p><strong>Date:</strong> <?= $row['event_date'] ?></p>
                     <p><strong>Time:</strong> <?= $row['event_time'] ?> (<?= $row['time_period'] ?>)</p>
-
                     <!-- Extra Details -->
                     <p><strong>Guests:</strong> <?= $row['guests'] ?></p>
                     <p><strong>Extras:</strong> 
@@ -130,11 +122,9 @@ $result = $conn->query($query);
                             echo implode(", ", $extras);
                         ?>
                     </p>
-
                     <!-- Address and Total Price Last -->
                     <p><strong>Address:</strong> <small><?= htmlspecialchars($row['address']) ?></small></p>
                     <p><strong>Total Price:</strong> ₹<?= $row['total_cost'] ?></p>
-
                     <!-- Action Buttons -->
                     <div class="action-buttons">
                         <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to cancel this booking?');">

@@ -1,28 +1,23 @@
 <?php
 session_start();
 include 'db_connect.php';
-
 // Add Decoration
 if (isset($_POST['add'])) {
     $event_type = $_POST['event_type'];
     $price = $_POST['price'];
-
     // Process the image upload
     $target_dir = "images/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-
     // Insert into database
     $stmt = $conn->prepare("INSERT INTO decorations (event_type, image_path, price) VALUES (?, ?, ?)");
     $stmt->bind_param("ssd", $event_type, $target_file, $price);
     $stmt->execute();
     $stmt->close();
-
     // Redirect to avoid resubmission on refresh
     header('Location: manage_decorations.php');
     exit();
 }
-
 // Delete Decoration
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
@@ -30,7 +25,6 @@ if (isset($_GET['delete'])) {
     header("Location: manage_decorations.php");
     exit();
 }
-
 // Edit Decoration
 if (isset($_POST['edit'])) {
     $id = $_POST['id'];
@@ -44,13 +38,11 @@ if (isset($_POST['edit'])) {
         $conn->query("UPDATE decorations SET price=$price WHERE id=$id");
     }
 }
-
 // Handle search and pagination
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $limit = 10;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page - 1) * $limit;
-
 // Total rows for pagination
 $count_query = "SELECT COUNT(*) AS total FROM decorations";
 if ($search) {
@@ -68,7 +60,6 @@ if ($search) {
 $sql .= " ORDER BY id DESC LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -201,7 +192,6 @@ $result = $conn->query($sql);
             text-decoration: underline;
         }
     </style>
-
     <script>
         function previewImage(event) {
             const file = event.target.files[0];
@@ -220,93 +210,88 @@ $result = $conn->query($sql);
         }
     </script>
 </head>
-<body>
+    <body>
+        <div class="card">
+            <h2>🎨 Manage Decorations</h2>
+            <div class="form-row">
+                <!-- Add Decoration -->
+                <div class="form-section">
+                    <h3>Add Decoration</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                <label>Event Type:</label>
+                <select name="event_type" required>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Roce">Roce</option>
+                    <option value="Marriage">Marriage</option>
+                    <option value="Haldi">Haldi</option>
+                    <option value="Mehendi">Mehendi</option>
+                    <option value="Reception">Reception</option>
+                    <option value="Baby Shower">Baby Shower</option>
+                    <option value="Cradle Ceremony">Cradle Ceremony</option>
+                </select>
+                        <label>Image:</label>
+                        <input type="file" name="image" accept="image/*" required onchange="previewImage(event)">
+                        <img id="preview-img" src="">
 
-<div class="card">
-    <h2>🎨 Manage Decorations</h2>
-    <div class="form-row">
-        <!-- Add Decoration -->
-        <div class="form-section">
-            <h3>Add Decoration</h3>
-            <form method="POST" enctype="multipart/form-data">
-        <label>Event Type:</label>
-        <select name="event_type" required>
-            <option value="Birthday">Birthday</option>
-            <option value="Engagement">Engagement</option>
-            <option value="Roce">Roce</option>
-            <option value="Marriage">Marriage</option>
-            <option value="Haldi">Haldi</option>
-            <option value="Mehendi">Mehendi</option>
-            <option value="Reception">Reception</option>
-            <option value="Baby Shower">Baby Shower</option>
-            <option value="Cradle Ceremony">Cradle Ceremony</option>
-        </select>
-                <label>Image:</label>
-                <input type="file" name="image" accept="image/*" required onchange="previewImage(event)">
-                <img id="preview-img" src="">
+                        <label>Price (₹):</label>
+                        <input type="number" name="price" step="100.00" required placeholder="e.g. 1500">
 
-                <label>Price (₹):</label>
-                <input type="number" name="price" step="100.00" required placeholder="e.g. 1500">
+                        <input type="submit" name="add" value="Add Decoration">
+                    </form>
+                </div>
 
-                <input type="submit" name="add" value="Add Decoration">
-            </form>
+                <!-- Search Decoration -->
+                <div class="form-section">
+                    <h3>Search Decoration</h3>
+                    <form method="GET">
+                        <label>Search by Event Type:</label>
+                        <input type="text" name="search" placeholder="e.g. Birthday" value="<?php echo htmlspecialchars($search); ?>">
+                        <input type="submit" value="Search">
+                    </form>
+                    <a href="admin_dashboard.php" class="back-button">⬅ Back</a>
+                </div>
+            </div>
         </div>
-
-        <!-- Search Decoration -->
-        <div class="form-section">
-            <h3>Search Decoration</h3>
-            <form method="GET">
-                <label>Search by Event Type:</label>
-                <input type="text" name="search" placeholder="e.g. Birthday" value="<?php echo htmlspecialchars($search); ?>">
-                <input type="submit" value="Search">
-            </form>
-            <a href="admin_dashboard.php" class="back-button">⬅ Back</a>
+        <!-- Decorations Table -->
+        <h2>All Decorations</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Event Type</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <form method="POST" enctype="multipart/form-data">
+                        <td>
+                            <?php echo $row['id']; ?>
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        </td>
+                        <td><?php echo htmlspecialchars($row['event_type']); ?></td>
+                        <td><img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="Decoration Image"></td>
+                        <td><input type="number" name="price" value="<?php echo $row['price']; ?>" step="0.01" required></td>
+                        <td>
+                            <input type="file" name="image" accept="image/*">
+                            <input type="submit" name="edit" value="Update">
+                            <br>
+                            <a href="?delete=<?php echo $row['id']; ?>" class="delete-link" onclick="return confirm('Delete this decoration?')">Delete</a>
+                        </td>
+                    </form>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+        <!-- Pagination -->
+        <div class="pagination">
+            <?php if ($page > 1): ?>
+                <a href="?page=<?php echo $page - 1; ?>&search=<?php echo urlencode($search); ?>">Previous</a>
+            <?php endif; ?>
+            <strong>Page <?php echo $page; ?> of <?php echo $total_pages; ?></strong>
+            <?php if ($page < $total_pages): ?>
+                <a href="?page=<?php echo $page + 1; ?>&search=<?php echo urlencode($search); ?>">Next</a>
+            <?php endif; ?>
         </div>
-        
-    </div>
-</div>
-
-<!-- Decorations Table -->
-<h2>All Decorations</h2>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Event Type</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Actions</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <tr>
-            <form method="POST" enctype="multipart/form-data">
-                <td>
-                    <?php echo $row['id']; ?>
-                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                </td>
-                <td><?php echo htmlspecialchars($row['event_type']); ?></td>
-                <td><img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="Decoration Image"></td>
-                <td><input type="number" name="price" value="<?php echo $row['price']; ?>" step="0.01" required></td>
-                <td>
-                    <input type="file" name="image" accept="image/*">
-                    <input type="submit" name="edit" value="Update">
-                    <br>
-                    <a href="?delete=<?php echo $row['id']; ?>" class="delete-link" onclick="return confirm('Delete this decoration?')">Delete</a>
-                </td>
-            </form>
-        </tr>
-    <?php endwhile; ?>
-</table>
-
-<!-- Pagination -->
-<div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="?page=<?php echo $page - 1; ?>&search=<?php echo urlencode($search); ?>">Previous</a>
-    <?php endif; ?>
-    <strong>Page <?php echo $page; ?> of <?php echo $total_pages; ?></strong>
-    <?php if ($page < $total_pages): ?>
-        <a href="?page=<?php echo $page + 1; ?>&search=<?php echo urlencode($search); ?>">Next</a>
-    <?php endif; ?>
-</div>
-
-</body>
+    </body>
 </html>

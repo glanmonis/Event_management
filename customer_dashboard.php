@@ -48,34 +48,41 @@ $pastResult = mysqli_query($conn, $pastQuery);
             margin: 0;
             padding: 0;
         }
-
-        .navbar {
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-            padding: 15px 0;
+        .nav {
+            flex-wrap: wrap;
+            background: white;
+            padding: 20px 0;
+            width: 100%; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box; */
         }
-
-        .navbar a {
+        .nav a {
             display: inline-block;
             margin: 0 10px;
-            padding: 10px 20px;
-            background: #ffffff10;
-            color: #fff;
+            color: #333;
+            margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            position: relative;
         }
-
-        .navbar a:hover {
-            background: #00d4ff33;
-            color: #00eaff;
-            border-color: #00eaff;
-            transform: translateY(-2px);
+        .nav a:hover {
+            color: #207b82;
         }
-
+        /* Underline effect on hover */
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #207b82;
+            left: 0;
+            bottom: -4px;
+            transition: 0.3s;
+        }
+        .nav a:hover::after {
+            width: 100%;
+        }
         .container {
             padding: 30px;
             display: flex;
@@ -127,7 +134,7 @@ $pastResult = mysqli_query($conn, $pastQuery);
     </style>
 </head>
 <body>
-    <div class="navbar">
+    <div class="nav">
         <a href="home.php">Home</a>
         <a href="my_bookings.php">My Bookings</a>
         <a href="book_event.php">Book New Event</a>

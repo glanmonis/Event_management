@@ -1,17 +1,14 @@
 <?php
 include 'db_connect.php';
-
 // Total Bookings
 $totalBookingsQuery = "SELECT COUNT(*) as total FROM bookings";
 $totalBookingsResult = mysqli_query($conn, $totalBookingsQuery);
 $totalBookings = mysqli_fetch_assoc($totalBookingsResult)['total'];
-
 // Upcoming Events (from today onwards)
 $today = date('Y-m-d');
 $upcomingEventsQuery = "SELECT COUNT(*) as upcoming FROM bookings WHERE event_date >= '$today'";
 $upcomingEventsResult = mysqli_query($conn, $upcomingEventsQuery);
 $upcomingEvents = mysqli_fetch_assoc($upcomingEventsResult)['upcoming'];
-
 // Registered Customers
 $customersQuery = "SELECT COUNT(*) as total FROM customer";
 $customersResult = mysqli_query($conn, $customersQuery);
@@ -25,46 +22,62 @@ $registeredCustomers = mysqli_fetch_assoc($customersResult)['total'];
     <title>Admin Dashboard</title>
     <link rel="icon" href="logo.png" type="image/x-icon"> <!-- small icon shown in browser tabs/bookmarks -->
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+        background: linear-gradient(to right, #2c3e50, #4ca1af);
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    body {
-        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.navbar a {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 10px 20px;
-    background: #ffffff10;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.navbar a:hover {
-    background: #00d4ff33; /* soft cyan background */
-    color: #00eaff;        /* bright cyan text */
-    border-color: #00eaff;
-    transform: translateY(-2px);
-}
+    .nav {
+            flex-wrap: wrap;
+            background: white;
+            padding: 20px 0;
+            width: 100%; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            box-sizing: border-box; */
+        }
+        .nav a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav a:hover {
+            color: #207b82;
+        }
+        /* Underline effect on hover */
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #207b82;
+            left: 0;
+            bottom: -4px;
+            transition: 0.3s;
+        }
+        .nav a:hover::after {
+            width: 100%;
+        }
 
     .container {
         padding: 30px;
@@ -124,18 +137,14 @@ $registeredCustomers = mysqli_fetch_assoc($customersResult)['total'];
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 </style>
-
 </head>
 <body>
-    <div class="navbar">
-        <a href="#">Dashboard</a>
+    <div class="nav">
         <a href="manage_booking.php">Manage Bookings</a>
         <a href="manage_decorations.php">Manage Decorations</a>
         <a href="customer_details.php">Customers</a>
-        <a href="#">Reports</a>
         <a href="logout.php">Logout</a>
     </div>
-
     <div class="container">
         <div class="card">
             <h3>Dashboard Overview</h3>
@@ -144,26 +153,16 @@ $registeredCustomers = mysqli_fetch_assoc($customersResult)['total'];
                 <li>Upcoming Events: <?php echo $upcomingEvents; ?></li>
                 <li>Registered Customers: <?php echo $registeredCustomers; ?></li>
             </ul>
-        </div>
-
-        <div class="card">
-            <h3>Manage Bookings</h3>
-            <ul>
-                <li>Booking ID: 1234 - Status: Pending</li>
-                <li>Booking ID: 1235 - Status: Confirmed</li>
-            </ul>
             <a href="manage_booking.php" class="btn">View All Bookings</a>
         </div>
-
         <div class="card">
             <h3>Manage Decorations</h3>
             <ul>
-                <li>Decoration 1: Flowers - Price: $100</li>
-                <li>Decoration 2: Lights - Price: $50</li>
+                <li>Decoration 1: Flowers - Price: ₹100</li>
+                <li>Decoration 2: Lights - Price: ₹50</li>
             </ul>
-            <a href="#" class="btn">Add/Update Decorations</a>
+            <a href="manage_decorations.php" class="btn">Add/Update Decorations</a>
         </div>
-
         <div class="card">
             <h3>Customer List</h3>
              <ul>
@@ -175,6 +174,7 @@ $registeredCustomers = mysqli_fetch_assoc($customersResult)['total'];
                 }
                 ?>
             </ul>
+            <a href="customer_details.php" class="btn">Customers</a>
         </div>
     </div>
 </body>

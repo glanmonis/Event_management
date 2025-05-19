@@ -6,10 +6,8 @@ if (!isset($_SESSION["admin"])) {
     header("Location: admin_login.php");
     exit();
 }
-
 // Get today's date
 $today = date('Y-m-d');
-
 // Handle delete request
 if (isset($_GET['delete'])) {
     $deleteId = intval($_GET['delete']);
@@ -17,7 +15,6 @@ if (isset($_GET['delete'])) {
     header("Location: manage_booking.php");
     exit();
 }
-
 // Today’s bookings
 $bookings_today = $conn->query("
     SELECT b.*, d.image_path, d.price as decor_price, c.first_name, c.last_name, c.phone
@@ -27,7 +24,6 @@ $bookings_today = $conn->query("
     WHERE b.event_date = '$today'
     ORDER BY b.event_time ASC
 ");
-
 // Upcoming bookings (future dates)
 $bookings_upcoming = $conn->query("
     SELECT b.*, d.image_path, d.price as decor_price, c.first_name, c.last_name, c.phone
@@ -37,7 +33,6 @@ $bookings_upcoming = $conn->query("
     WHERE b.event_date > '$today'
     ORDER BY b.event_date ASC, b.event_time ASC
 ");
-
 // Expired bookings (past dates)
 $bookings_expired = $conn->query("
     SELECT b.*, d.image_path, d.price as decor_price, c.first_name, c.last_name, c.phone
@@ -47,7 +42,6 @@ $bookings_expired = $conn->query("
     WHERE b.event_date < '$today'
     ORDER BY b.event_date DESC, b.event_time DESC
 ");
-
 function display_bookings($bookings) {
     while($row = $bookings->fetch_assoc()) {
         $today = date('Y-m-d');
@@ -67,10 +61,8 @@ function display_bookings($bookings) {
                 📞 <?= htmlspecialchars($row['phone']) ?><br>
                 <small>📧 <?= htmlspecialchars($row['customer_email']) ?></small>
             </td>
-
             <td>
                 <?= $row['event_date'] ?></td>
-
             <td><?= $row['event_time'] ?> (<?= $row['time_period'] ?>)</td>
             <td><?= $row['event_type'] ?></td>
             <td>
@@ -93,7 +85,6 @@ function display_bookings($bookings) {
         <?php
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -102,7 +93,6 @@ function display_bookings($bookings) {
     <link rel="icon" href="logo.png" type="image/x-icon"> <!-- small icon shown in browser tabs/bookmarks -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        <style>
     * {
         margin: 0;
         padding: 0;
@@ -249,7 +239,6 @@ function display_bookings($bookings) {
     .section {
         margin-top: 40px;
     }
-</style>
 
     </style>
 </head>
@@ -258,7 +247,6 @@ function display_bookings($bookings) {
         <h1>
             Customer Bookings
             <span class="action-buttons">
-                <a href="manual_booking.php" class="btn btn-green">+ Add Booking</a>
                 <a href="admin_dashboard.php" class="btn btn-green">← Back to Dashboard</a>
                 <a href="logout.php" class="btn btn-red">Logout</a>
             </span>
@@ -283,7 +271,6 @@ function display_bookings($bookings) {
             <?php display_bookings($bookings_today); ?>
             </tbody>
         </table>
-
         <h2>Upcoming Bookings</h2>
         <table>
             <thead>
@@ -304,7 +291,6 @@ function display_bookings($bookings) {
             <?php display_bookings($bookings_upcoming); ?>
             </tbody>
         </table>
-
         <h2>Expired Bookings</h2>
         <table>
             <thead>
@@ -325,7 +311,6 @@ function display_bookings($bookings) {
             <?php display_bookings($bookings_expired); ?>
             </tbody>
         </table>
-
     </div>
 </body>
 </html>

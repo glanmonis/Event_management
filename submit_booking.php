@@ -159,37 +159,35 @@ p:last-child {
         font-size: 1rem;
     }
 }
-</style>
-</head>
-<body>
+    </style>
+    </head>
+    <body>
+        <div class="summary">
+            <h2>Confirm Your Booking</h2>
+            <?php if (isset($_SESSION['booking_preview'])): 
+                $b = $_SESSION['booking_preview'];
+            ?>
+                <p><strong>Date:</strong> <?= $b['event_date'] ?></p>
+                <p><strong>Time:</strong> <?= $b['event_time'] ?> (<?= $b['time_period'] ?>)</p>
+                <p><strong>Event Type:</strong> <?= $b['event_type'] ?></p>
+                <p><strong>Decoration Price:</strong> ₹<?= $b['decoration_price'] ?></p>
+                <p><strong>Guests:</strong> <?= $b['guests'] ?></p>
+                <?php if ($b['chairs']) echo "<p>Chairs: ₹{$b['chair_cost']}</p>"; ?>
+                <?php if ($b['shamiyana']) echo "<p>Shamiyana: ₹{$b['shamiyana_cost']}</p>"; ?>
+                <?php if ($b['sheets']) echo "<p>Sheets: ₹{$b['sheets_cost']}</p>"; ?>
+                <?php if ($b['sound'] > 0) echo "<p>Speakers ({$b['sound']}): ₹{$b['sound_cost']}</p>"; ?>
+                <?php if ($b['lighting']) echo "<p>Lighting: ₹{$b['lighting_cost']}</p>"; ?>
+                <p><strong>Address:</strong> <?= $b['address'] ?></p>
+                <h3>Total Price: ₹<?= $b['total_cost'] ?></h3>
 
-<div class="summary">
-    <h2>Confirm Your Booking</h2>
-    <?php if (isset($_SESSION['booking_preview'])): 
-        $b = $_SESSION['booking_preview'];
-    ?>
-        <p><strong>Date:</strong> <?= $b['event_date'] ?></p>
-        <p><strong>Time:</strong> <?= $b['event_time'] ?> (<?= $b['time_period'] ?>)</p>
-        <p><strong>Event Type:</strong> <?= $b['event_type'] ?></p>
-        <p><strong>Decoration Price:</strong> ₹<?= $b['decoration_price'] ?></p>
-        <p><strong>Guests:</strong> <?= $b['guests'] ?></p>
-        <?php if ($b['chairs']) echo "<p>Chairs: ₹{$b['chair_cost']}</p>"; ?>
-        <?php if ($b['shamiyana']) echo "<p>Shamiyana: ₹{$b['shamiyana_cost']}</p>"; ?>
-        <?php if ($b['sheets']) echo "<p>Sheets: ₹{$b['sheets_cost']}</p>"; ?>
-        <?php if ($b['sound'] > 0) echo "<p>Speakers ({$b['sound']}): ₹{$b['sound_cost']}</p>"; ?>
-        <?php if ($b['lighting']) echo "<p>Lighting: ₹{$b['lighting_cost']}</p>"; ?>
-        <p><strong>Address:</strong> <?= $b['address'] ?></p>
-        <h3>Total Price: ₹<?= $b['total_cost'] ?></h3>
-
-        <form action="confirm_booking.php" method="POST">
-            <button type="submit" class="btn" name="confirm_booking">Confirm Booking</button>
-        </form>
-         <!-- Edit Button -->
-        <button class="btn-edit" onclick="window.history.back()">Edit Booking</button>
-    <?php else: ?>
-        <p>No booking data found.</p>
-    <?php endif; ?>
-</div>
-
-</body>
+                <form action="confirm_booking.php" method="POST">
+                    <button type="submit" class="btn" name="confirm_booking">Confirm Booking</button>
+                </form>
+                <!-- Edit Button -->
+                <button class="btn-edit" onclick="window.history.back()">Edit Booking</button>
+            <?php else: ?>
+                <p>No booking data found.</p>
+            <?php endif; ?>
+        </div>
+    </body>
 </html>
