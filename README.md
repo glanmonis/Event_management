@@ -1,41 +1,47 @@
 ## 👋 Overview
 
-Hello there! I'm **Glan Monis**, a passionate and driven developer with a strong foundation in software engineering and a vision to create impactful solutions.
+Hello there! I'm **Glan Monis**, a recent **Bachelor of Computer Applications (BCA) graduate** from **Mangalore**, driven by a passion to build innovative digital solutions that make a difference.
 
 💡 **Who am I?**
 
-I am a **problem solver** who loves building scalable applications, automating workflows, and bringing ideas to life through clean, efficient code. My areas of interest span across:
+I am a **fresh and enthusiastic developer** with a keen interest in:
 
-- 🌐 **Web Development:** Crafting responsive and dynamic websites with seamless user experiences
-- 🤖 **AI & Machine Learning:** Building intelligent systems that solve real-world problems
-- 📊 **Data Science & Analysis:** Turning data into meaningful insights for decision-making
-- 🔒 **Cybersecurity Fundamentals:** Understanding and applying secure coding practices
+- 🌐 **Web Development:** Designing and developing responsive, user-friendly websites with clean UI and optimised performance  
+- 💻 **Software Development:** Creating robust applications that solve real-life problems efficiently  
+- 🛠️ **Full Stack Development:** Integrating front-end and back-end seamlessly for dynamic, database-driven solutions
 
-⚡ **What drives me?**
+🚀 **What have I built?**
 
-The continuous pursuit of learning and applying knowledge to solve challenges efficiently. I believe in writing **code that not only works but is clean, optimised, and maintainable**.
+During my academic journey, I developed an advanced **Event Management System** as my major project, featuring:
 
-🚀 **Currently working on:**
+- ✅ Full customer and admin login systems  
+- ✅ Dynamic event booking with date/time validation  
+- ✅ Decoration selection with live price calculation  
+- ✅ Admin dashboard to manage bookings, decorations, and customers  
+- ✅ Built using **HTML, CSS, JavaScript, PHP, and MySQL**
 
-- Enhancing my skills in **[your current learning focus: e.g., React, Node.js, Deep Learning]**
-- Developing **[project name or type, e.g., a Face Recognition Attendance System, an Event Management Platform]**
-- Preparing for upcoming **internships, placements, and technical interviews**
+This project reflects my ability to **analyse user requirements**, design database schemas, write efficient back-end scripts, and integrate them with intuitive front-end interfaces.
 
 🎯 **My Goals:**
 
-- Become a **full-stack developer** with a strong understanding of system design  
-- Contribute to **open-source projects** and collaborate with global developers  
-- Build projects that **solve real-life problems** and enhance user lives
+- Secure an entry-level position as a **Web Developer or Software Developer** to apply my skills in real-world environments  
+- Continuously learn advanced frameworks and technologies like **React, Node.js, and cloud integrations**  
+- Contribute to **open-source projects** and build scalable applications that positively impact users  
+- Pursue higher studies or certifications to deepen my expertise in development and system design
+
+⚡ **Why me?**
+
+Because I am **dedicated, quick to learn, and committed to delivering quality work** with a mindset focused on problem-solving and continuous improvement.
 
 📫 **Let’s Connect:**
 
-- 💼 [LinkedIn](your-linkedin-url)
+- 💼 [LinkedIn] www.linkedin.com/in/glan-monis
 - 💻 [Portfolio Website](your-portfolio-link)
-- 📧 Email: glanpritheshmonis@gmail.com]
+- 📧 Email: glanpritheshmonis@gmail.com
 
 ---
 
-> “The only way to do great work is to love what you do.” – *Steve Jobs*
+> “Learning never exhausts the mind, it only ignites it to achieve greater things.” – *Adapted for developers.*
 
 ---
 
