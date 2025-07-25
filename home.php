@@ -23,7 +23,7 @@ if ($row = mysqli_fetch_assoc($nameResult)) {
     <link rel="icon" href="logo.png" type="image/x-icon"> <!-- small icon shown in browser tabs/bookmarks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-  /*----Global Styles----*/
+/*----Global Styles----*/
   html {
     scroll-behavior: smooth;
   }
@@ -229,6 +229,9 @@ if ($row = mysqli_fetch_assoc($nameResult)) {
     margin-top: 40px;
     text-align: center;
   }
+
+
+  
   
   /* ---------- Event Tiles ---------- */
   .events-gallery {
@@ -367,6 +370,26 @@ if ($row = mysqli_fetch_assoc($nameResult)) {
       height: 160px;
     }
   }
+
+
+
+  @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-text {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+
+
 
   </style>
 </head>
