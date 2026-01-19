@@ -1,2 +1,3 @@
 Event managemnt 
-events/img1.jpg
+(events/img1.jpg)
+
