@@ -91,8 +91,8 @@
 
 ###
 
-![Book Event](Screenshots/Book_event1.png
-![Book Event](Screenshots/Book_event2.png
+![Book Event](Screenshots/Book_event1.png)
+![Book Event](Screenshots/Book_event2.png)
 
 ###
 
@@ -217,7 +217,7 @@
 ###
 
 <p align="left">𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐅𝐢𝐥𝐞</p>
-![Database](Database/Event_Management.sql)
+[Database](Database/Event_Management.sql)
 
 ###
 
@@ -233,7 +233,7 @@
 
 ###
 
-![ER Diagram](Screenshots/ER_diagram.png
+![ER Diagram](Screenshots/ER_diagram.png)
 
 ###
 
