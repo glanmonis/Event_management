@@ -89,8 +89,8 @@
 <p align="left">➜ Core booking functionality of the system.<br><br>➜ Event selection: Date, time, and time period<br>↳ Time restriction: 06:00 AM – 10:00 PM<br>↳ Daily booking limit: Maximum 3 bookings per day<br><br>➜ Event type selection: Displays related decorations with prices.<br><br>➜ Decoration selection: Choose decorations based on event type.<br><br>➜ Optional items: Chairs, Shamiyana, Speaker, Lighting<br><br>➜ Dynamic price calculation based on selected items and quantity.<br><br>➜ Address field for event location.<br><br>➜ Total amount displayed before proceeding.</p>
 
 ###
-<img src="Screenshots/Book_event1.png" alt="Book Eevent" width="700"/>
-<img src="Screenshots/Book_event2.png" alt="Book Event" width="700"/>
+<img src="Screenshots/Book_event1.png" alt="Book Eevent" width="800"/>
+<img src="Screenshots/Book_event2.png" alt="Book Event" width="800"/>
 
 ###
 
@@ -122,7 +122,7 @@
 
 ###
 
-<img src="Screenshots/my_bookings.png" alt="My Bookings" width="700"/>
+<img src="Screenshots/My_bookings.png" alt="My Bookings" width="700"/>
 
 ###
 
@@ -148,6 +148,7 @@
 ###
 
 <img src="Screenshots/Admin_login.png" alt="Admin Login" width="500"/>
+
 ###
 
 <h2 align="left">📊 Admin Dashboard</h2>
