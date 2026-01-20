@@ -67,8 +67,7 @@
 
 ###
 
-![Sign In Login](Screenshots/Login1.png)<br>![Sign Up Login](Screenshots/Login2.png)
-
+<img src="Screenshots/Login1.png" alt="Sign In Login" width="400"/> <img src="Screenshots/Login2.png" alt="Sign Up Login" width="400"/>
 ###
 
 <h2 align="left">👤 Customer Dashboard</h2>
@@ -148,8 +147,7 @@
 
 ###
 
-![Admin Login](Screenshots/Admin_login.png)
-
+<img src="Screenshots/Admin_login.png" alt="Admin Login" width="400"/>
 ###
 
 <h2 align="left">📊 Admin Dashboard</h2>
@@ -234,8 +232,7 @@
 
 ###
 
-![ER Diagram](Screenshots/ER_diagram.png)
-<img src="Screenshots/ER_diagram.png" alt="ER Diagram" width="300"/>
+<img src="Screenshots/ER_diagram.png" alt="ER Diagram" width="400"/>
 
 ###
 
