@@ -218,7 +218,7 @@
 
 <p align="left">𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐅𝐢𝐥𝐞</p>
 
-[Database](Database/Event_Management.sql)
+[Database File](Database/Event_Management.sql)
 
 ###
 
@@ -235,6 +235,7 @@
 ###
 
 ![ER Diagram](Screenshots/ER_diagram.png)
+<img src="screenshots/ER_diagram.png" alt="ER Diagram" width="300"/>
 
 ###
 
