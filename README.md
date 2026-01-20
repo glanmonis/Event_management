@@ -67,7 +67,7 @@
 
 ###
 
-<p align="left">![Sign In Login](Screenshots/Login1.png)<br>![Sign Up Login](Screenshots/Login2.png)</p>
+![Sign In Login](Screenshots/Login1.png)<br>![Sign Up Login](Screenshots/Login2.png)
 
 ###
 
@@ -79,7 +79,7 @@
 
 ###
 
-<p align="left">![Customer Dashboard](Screenshots/Customer_dashboard.png)</p>
+![Customer Dashboard](Screenshots/Customer_dashboard.png)
 
 ###
 
@@ -91,7 +91,7 @@
 
 ###
 
-<p align="left">![Book Event](Screenshots/Book_event1.png<br>![Book Event](Screenshots/Book_event2.png</p>
+![Book Event](Screenshots/Book_event1.png<br>![Book Event](Screenshots/Book_event2.png
 
 ###
 
@@ -111,7 +111,7 @@
 
 ###
 
-<p align="left">![Confirm Booking](Screenshots/Confirm_booking.png)</p>
+![Confirm Booking](Screenshots/Confirm_booking.png)
 
 ###
 
@@ -123,7 +123,7 @@
 
 ###
 
-<p align="left">![My Bookings](screenshots/my_bookings.png)</p>
+![My Bookings](screenshots/my_bookings.png)
 
 ###
 
@@ -135,7 +135,7 @@
 
 ###
 
-<p align="left">![Customer Profile](Screenshots/Customer_profile.png)</p>
+![Customer Profile](Screenshots/Customer_profile.png)
 
 ###
 
@@ -147,7 +147,7 @@
 
 ###
 
-<p align="left">![Admin Login](Screenshots/Admin_login.png)</p>
+![Admin Login](Screenshots/Admin_login.png)
 
 ###
 
@@ -159,7 +159,7 @@
 
 ###
 
-<p align="left">![Admin Dashboard](Screenshots/Admin_dashboard.png)</p>
+![Admin Dashboard](Screenshots/Admin_dashboard.png)
 
 ###
 
@@ -171,7 +171,7 @@
 
 ###
 
-<p align="left">![Manage Bookings](Screenshots/Manage_bookings.png)</p>
+![Manage Bookings](Screenshots/Manage_bookings.png)
 
 ###
 
@@ -183,7 +183,7 @@
 
 ###
 
-<p align="left">![Manage Decorations](Screenshots/Manage_decorations.png)</p>
+![Manage Decorations](Screenshots/Manage_decorations.png)
 
 ###
 
@@ -195,7 +195,7 @@
 
 ###
 
-<p align="left">![Customer Details](Screenshots/Customer_details.png)</p>
+![Customer Details](Screenshots/Customer_details.png)
 
 ###
 
@@ -215,7 +215,8 @@
 
 ###
 
-<p align="left">𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐅𝐢𝐥𝐞<br><br>Database/Event_Management.sql</p>
+<p align="left">𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐅𝐢𝐥𝐞</p>
+<br>Database/Event_Management.sql
 
 ###
 
@@ -231,7 +232,7 @@
 
 ###
 
-<p align="left">![ER Diagram](Screenshots/ER_diagram.png</p>
+![ER Diagram](Screenshots/ER_diagram.png
 
 ###
 
