@@ -53,9 +53,7 @@
 <p align="left">The home page is the landing page of the system.<br><br>➜ 𝐍𝐚𝐯𝐢𝐠𝐚𝐭𝐢𝐨𝐧 𝐛𝐚𝐫: Home, About Us, Book Event, Contact, Login (dropdown with Customer Login & Admin Login).<br><br>➜ Automatic image slider showcasing events.<br><br>➜ About Us section describing Suma Events.<br><br>➜ Events section displaying all event types:<br>↳ Clicking an event redirects to Book Event page if logged in.<br>↳ If not logged in, the user is prompted to login first.<br><br>➺ Contact section with address, email, and phone number.</p>
 
 ###
-
-<!-- <p align="left"></p> -->
-![Home Page](Screenshots/Home1.png)<br>![Home Page](Screenshots/Home2.png)<br>![Home Page](Screenshots/Home3.png)<br>![Home Page](Screenshots/Home4.png)
+<img src="Screenshots/Home1.png.png" alt="Home Page" width="600"/><br><img src="Screenshots/Home1.png.png" alt="Home Page" width="600"/><br><img src="Screenshots/Home1.png.png" alt="Home Page" width="600"/><br><img src="Screenshots/Home1.png.png" alt="Home Page" width="600"/>
 
 ###
 
@@ -67,7 +65,7 @@
 
 ###
 
-<img src="Screenshots/Login1.png" alt="Sign In Login" width="400"/> <img src="Screenshots/Login2.png" alt="Sign Up Login" width="400"/>
+<img src="Screenshots/Login1.png" alt="Sign In Login" width="500"/> <img src="Screenshots/Login2.png" alt="Sign Up Login" width="500"/>
 ###
 
 <h2 align="left">👤 Customer Dashboard</h2>
