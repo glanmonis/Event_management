@@ -235,7 +235,7 @@
 ###
 
 ![ER Diagram](Screenshots/ER_diagram.png)
-<img src="screenshots/ER_diagram.png" alt="ER Diagram" width="300"/>
+<img src="Screenshots/ER_diagram.png" alt="ER Diagram" width="300"/>
 
 ###
 
