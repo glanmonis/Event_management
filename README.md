@@ -53,10 +53,10 @@
 <p align="left">The home page is the landing page of the system.<br><br>➜ 𝐍𝐚𝐯𝐢𝐠𝐚𝐭𝐢𝐨𝐧 𝐛𝐚𝐫: Home, About Us, Book Event, Contact, Login (dropdown with Customer Login & Admin Login).<br><br>➜ Automatic image slider showcasing events.<br><br>➜ About Us section describing Suma Events.<br><br>➜ Events section displaying all event types:<br>↳ Clicking an event redirects to Book Event page if logged in.<br>↳ If not logged in, the user is prompted to login first.<br><br>➺ Contact section with address, email, and phone number.</p>
 
 ###
-<img src="Screenshots/Home1.png" alt="Home Page" width="800"/>
-<img src="Screenshots/Home2.png" alt="Home Page" width="900"/>
-<img src="Screenshots/Home3.png" alt="Home Page" width="1000"/>
-<img src="Screenshots/Home4.png" alt="Home Page" />
+<img src="Screenshots/Home1.png" alt="Home Page"/>
+<img src="Screenshots/Home2.png" alt="Home Page"/>
+<img src="Screenshots/Home3.png" alt="Home Page"/>
+<img src="Screenshots/Home4.png" alt="Home Page"/>
 
 ###
 
@@ -78,8 +78,7 @@
 <p align="left">Redirected here after login.<br><br>➜ Overview: Shows upcoming bookings and past events.<br>➜ Navigation: Home, Book Event, My Bookings, Profile, Logout<br>➜ Quick Actions: Option to book a new event directly from the dashboard.</p>
 
 ###
-
-![Customer Dashboard](Screenshots/Customer_dashboard.png)
+<img src="Screenshots/Customer_dashboard.png" alt="Customer Dashboard" width="700"/>
 
 ###
 
@@ -90,9 +89,8 @@
 <p align="left">➜ Core booking functionality of the system.<br><br>➜ Event selection: Date, time, and time period<br>↳ Time restriction: 06:00 AM – 10:00 PM<br>↳ Daily booking limit: Maximum 3 bookings per day<br><br>➜ Event type selection: Displays related decorations with prices.<br><br>➜ Decoration selection: Choose decorations based on event type.<br><br>➜ Optional items: Chairs, Shamiyana, Speaker, Lighting<br><br>➜ Dynamic price calculation based on selected items and quantity.<br><br>➜ Address field for event location.<br><br>➜ Total amount displayed before proceeding.</p>
 
 ###
-
-![Book Event](Screenshots/Book_event1.png)
-![Book Event](Screenshots/Book_event2.png)
+<img src="Screenshots/Book_event1.png" alt="Book Eevent" width="700"/>
+<img src="Screenshots/Book_event2.png" alt="Book Event" width="700"/>
 
 ###
 
@@ -112,7 +110,7 @@
 
 ###
 
-![Confirm Booking](Screenshots/Confirm_booking.png)
+<img src="Screenshots/Confirm_booking.png" alt="Confirm Booking" width="700"/>
 
 ###
 
@@ -124,7 +122,7 @@
 
 ###
 
-![My Bookings](screenshots/my_bookings.png)
+<img src="Screenshots/my_bookings.png" alt="My Bookings" width="700"/>
 
 ###
 
@@ -136,7 +134,8 @@
 
 ###
 
-![Customer Profile](Screenshots/Customer_profile.png)
+<img src="Screenshots/Customer_profile.png" alt="Customer Profile" width="500"/>
+
 
 ###
 
@@ -148,7 +147,7 @@
 
 ###
 
-<img src="Screenshots/Admin_login.png" alt="Admin Login" width="400"/>
+<img src="Screenshots/Admin_login.png" alt="Admin Login" width="500"/>
 ###
 
 <h2 align="left">📊 Admin Dashboard</h2>
@@ -159,7 +158,7 @@
 
 ###
 
-![Admin Dashboard](Screenshots/Admin_dashboard.png)
+<img src="Screenshots/Admin_dashboard.png" alt="Admin Dashboard" width="700"/>
 
 ###
 
@@ -170,8 +169,7 @@
 <p align="left">➜ Allows the admin to view and manage all customer bookings.<br>➜ Navigation buttons:<br>↳ Back to Dashboard <br>↳ Logout<br><br>➜ 𝐁𝐨𝐨𝐤𝐢𝐧𝐠 𝐨𝐯𝐞𝐫𝐯𝐢𝐞𝐰: Categorized by Today’s bookings, Upcoming bookings, and Expired bookings.<br><br>➜ Each booking displays:<br>↳ Customer name and details<br>↳ Event date & time<br>↳ Event type and extra decorations<br>↳ Total price and event address<br>↳ Action button to delete or modify bookings.</p>
 
 ###
-
-![Manage Bookings](Screenshots/Manage_bookings.png)
+<img src="Screenshots/Manage_bookings.png" alt="Manage Bookings" width="700"/>
 
 ###
 
@@ -183,7 +181,8 @@
 
 ###
 
-![Manage Decorations](Screenshots/Manage_decorations.png)
+
+<img src="Screenshots/Manage_decorations.png" alt="Manage Decoration" width="700"/>
 
 ###
 
@@ -195,7 +194,8 @@
 
 ###
 
-![Customer Details](Screenshots/Customer_details.png)
+
+<img src="Screenshots/Customer_details.png" alt="Customer Details" width="700"/>
 
 ###
 
